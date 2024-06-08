@@ -1,0 +1,10 @@
+// IMporting js sdk in the page first
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v20.0&appId=1017991759911697" nonce="jKyfCJyr"></script>
+
+
+
+
+
+// Plugin button code 
+<div class="fb-login-button" data-width="256" data-size="" data-button-type="" data-layout="" data-auto-logout-link="false" data-use-continue-as="false"></div>

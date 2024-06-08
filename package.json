@@ -1,0 +1,19 @@
+{
+  "name": "connectable",
+  "version": "1.0.0",
+  "description": "A web platform to connect the specially abled people across a location.",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Dhruv puri",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "firebase-tools": "^13.11.1",
+    "firebase": "^10.12.2",
+    "nodemon": "^3.1.3"
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "source": "/events{,/**}",
+  "function": "app" 
+},

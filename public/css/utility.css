@@ -1,0 +1,12 @@
+.fs-la {
+    font-size: larger;
+    font-weight: 800;
+}
+.pointer {
+    cursor: pointer;
+}
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
