@@ -1,7 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
 import { getAuth, GoogleAuthProvider, FacebookAuthProvider, signInWithCredential , createUserWithEmailAndPassword, signInWithPopup, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
 
-
 // Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDj9S8bqj8ydqCq8ypaXSWVhZl5bEMnGPs",
@@ -19,71 +18,70 @@ const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
 
-// const googleCredential = credential.GoogleAuthProvider(id_token);
+document.addEventListener("DOMContentLoaded", () => {
+  const googleSignInBtn = document.getElementById('google-btn');
+  const fbSignInBtn = document.getElementById('facebook-btn');
+  const emailSignInForm = document.getElementById('email-signin-form');
+  const emailSignUpForm = document.getElementById('email-signup');
 
-const googleSignInBtn = document.getElementById('google-btn');
-const fbSignInBtn = document.getElementById('facebook-btn');
-const emailSignInForm = document.getElementById('email-signin-form');
+  // Google authentication
+  googleSignInBtn.onclick = () => {
+    signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        const user = result.user;
+        window.location.href = "/events/";
+      }).catch((error) => {
+        console.error('Error signing in with Google:', error);
+      });
+  }
 
-// Google authentication
-googleSignInBtn.onclick = () => {
-  signInWithPopup(auth, googleProvider)
-  .then((result) => {
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    const user = result.user;
-  // console.log(user);
-  // console.log(token);
-window.location.href = "/events/";
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
-}
+  // Facebook authentication
+  fbSignInBtn.onclick = () => {
+    signInWithPopup(auth, facebookProvider)
+      .then(result => {
+        sendTokenToServer(result.user.getIdToken());
+      })
+      .catch(error => {
+        console.error('Error signing in with Facebook:', error);
+      });
+  }
 
-// Facebook authentication
-fbSignInBtn.onclick = () => {
-  signInWithPopup(auth, facebookProvider)
-    .then(result => {
-      // Sending the ID token to the server for verification
-      sendTokenToServer(result.user.getIdToken());
-    })
-    .catch(error => {
-      console.error('Error signing in with Facebook:', error);
-    });
-}
+  // Email sign-in
+  if (emailSignInForm) {
+    emailSignInForm.onsubmit = (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
 
-// Email authentication
-emailSignInForm.onsubmit = (e) => {
-  e.preventDefault();
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
+      signInWithEmailAndPassword(auth, email, password)
+        .then(result => {
+          window.location.href = "/events/";
+        })
+        .catch(error => {
+          alert('Error signing in with Email:', error.message);
+        });
+    }
+  }
 
-  signInWithEmailAndPassword(auth, email, password)
-    .then(result => {
-      // Sending the ID token to the server for verification
-      sendTokenToServer(result.user.getIdToken());
-    })
-    .catch(error => {
-      console.error('Error signing in with Email:', error);
-    });
-}
+  // Email sign-up
+  if (emailSignUpForm) {
+    emailSignUpForm.onsubmit = (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const pass = document.getElementById('password').value;
 
-document.getElementById('email-signup').addEventListener('submit', (e) => {
-  e.preventDefault();
-  const email = document.getElementById('email').value;
-  const pass = document.getElementById('password').value;
-
-  createUserWithEmailAndPassword(auth, email, pass)
-    .then(result => {
-      // Sending the ID token to the server for verification
-      sendTokenToServer(result.user.getIdToken());
-    })
-    .catch(error => {
-      console.error("Error signing up with Email : ", error);
-    });
-})
+      createUserWithEmailAndPassword(auth, email, pass)
+        .then(result => {
+          window.location.href = "/events/";
+        })
+        .catch(error => {
+          alert('Error signing up with Email:', error.message);
+        });
+    }
+  }
+});
 
 function sendTokenToServer(idToken) {
   fetch('/verifyToken', {
