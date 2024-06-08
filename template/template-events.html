@@ -15,6 +15,7 @@
 
     <title>CONNECTABLE</title>
 
+  
     <style>
       button {
         align-items: center;
@@ -40,8 +41,8 @@
         text-decoration: none;
         /* user-select: none; */
         /* -webkit-user-select: none;
-        touch-action: manipulation;
-        white-space: nowrap; */
+  touch-action: manipulation;
+  white-space: nowrap; */
         cursor: pointer;
         transition: all 0.3s;
       }
@@ -83,7 +84,7 @@
       body {
         /* padding: 5rem; */
         line-height: 1.7;
-        font-family: 'Nunito Sans', sans-serif;
+        font-family: "Nunito Sans", sans-serif;
         min-height: 100vh;
         background: linear-gradient(to bottom right, #b3e5fc, #81d4fa, #4fc3f7);
         color: #333; /* Changed default text color */
@@ -93,9 +94,7 @@
       .container {
         width: 100%;
         display: flex;
-        flex-direction: column !important;
         justify-content: center; /* Center the cards horizontally */
-        align-items: center;
         margin-top: 2rem; /* Adjusted margin top */
       }
 
@@ -103,7 +102,7 @@
         font-size: 6rem; /* Increased font size */
         margin-bottom: 3rem;
         color: white; /* Changed title color to white for better visibility */
-        font-family: 'Megrim', sans-serif; /* Changed font family */
+        font-family: "Megrim", sans-serif; /* Changed font family */
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow for depth */
       }
 
@@ -123,8 +122,7 @@
         border-radius: 1rem;
         overflow: hidden;
         width: calc(33.33% - 2rem); /* Set width for three cards in a row */
-        margin-right: 2rem;
-        transition: transform 0.5s ease; /* Add margin between cards */
+        margin-right: 2rem; /* Add margin between cards */
       }
 
       .card:last-child {
@@ -137,12 +135,13 @@
       }
 
       .card__title {
-        font-family: 'Megrim', sans-serif;
+        font-family: "Megrim", sans-serif;
         color: white;
         font-size: 2.5rem;
       }
 
       .card__details {
+        min-height: 40vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -173,22 +172,14 @@
         color: #555; /* Changed detail text color */
       }
 
-      .card__detail--organic {
-        font-weight: 900;
-        text-transform: uppercase;
-        background-image: linear-gradient(to right, #9be15d, #00e3ae);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-
       .card__detail--price {
         font-weight: 900;
       }
 
       .card__link {
         width: 100%;
-        position: absolute;
+        position:absolute;
+        bottom: 0;
         background-color: #4ce3f7;
         color: white;
         font-size: 1.4rem;
@@ -207,10 +198,10 @@
 
       .card:hover {
         box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
-        transform: scale(1.05, 1.05);
+        transform: translateY(-0.5rem);
       }
     </style>
-  </head>
+</head>
 
   <body>
     <div class="container">
