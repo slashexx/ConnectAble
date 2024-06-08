@@ -8,6 +8,7 @@ const replace = (temp, product) => {
   output = output.replace(/{%QUANTITY%}/g, product.quantity);
   output = output.replace(/{%DESCRIPTION%}/g, product.description);
   output = output.replace(/{%ID%}/g, product.id || 'NO ID');
+  output = output.replace(/{%HOST_NAME%}/g, product.hostName);
   
   // if(!product.organic) output = output.replace(/{%NOT_ORGANIC%}/g, 'not-organic');
   return output;

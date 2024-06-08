@@ -16,175 +16,195 @@
     <title>CONNECTABLE</title>
 
     <style>
-      *,
-      *::before,
-      *::after {
-        margin: 0;
-        padding: 0;
-        box-sizing: inherit;
-      }
-
-      html {
-        font-size: 62.5%;
+        
+      button {
+        align-items: center;
+        background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+        border: 0;
+        border-radius: 8px;
+        box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
         box-sizing: border-box;
-      }
-
-      body {
-        padding: 5rem 5rem 10rem;
-        line-height: 1.7;
-        font-family: 'Nunito Sans', sans-serif;
-        color: #555;
-        min-height: 100vh;
-        background: linear-gradient(to bottom right, #9be15d, #00e3ae);
-      }
-
-      h1 {
-        font-family: 'Megrim', sans-serif;
-        font-size: 6rem;
-        color: white;
-        transform: skewY(-5deg);
-        text-align: center;
-        position: relative;
-        word-spacing: 3px;
-      }
-
-      h1::before {
-        content: '';
-        display: block;
-        height: 65%;
-        width: 49%;
-        position: absolute;
-        top: 105%;
-        left: 50%;
-        background: linear-gradient(to bottom, #9be15d, #00e3ae);
-        opacity: 0.8;
-        z-index: -1;
-        transform: skewY(370deg) translate(-50%, -50%);
-      }
-
-      .container {
-        width: 95rem;
-        margin: 0 auto;
-      }
-
-      .cards-container {
-        margin-top: 8rem;
-      }
-
-      .card {
-        background: white;
-        box-shadow: 0 2rem 6rem 1rem rgba(0, 0, 0, 0.15);
-        margin-bottom: 5rem;
-        transform: skewX(-20deg);
+        color: #ffffff;
         display: flex;
-        transition: all 0.5s;
-      }
-
-      .card__emoji {
-        font-size: 5.5rem;
-        line-height: 1.2;
-        padding: 1.5rem 6rem 0.5rem 1.5rem;
-        letter-spacing: -4rem;
-        transform: skewX(20deg);
-      }
-
-      .card__title-box {
-        background: linear-gradient(to bottom, #9be15d, #00e3ae);
-        margin-right: auto;
-        display: flex;
-        align-items: center;
-        padding: 0 3rem;
-      }
-
-      .card__title {
-        font-family: 'Megrim', sans-serif;
-        color: white;
-        font-size: 3.25rem;
-        transform: skewX(20deg);
-      }
-
-      .card__details {
-        display: flex;
-      }
-
-      .card__detail-box {
-        align-self: stretch;
-        border-right: 1px solid #ddd;
-        display: flex;
-        align-items: center;
-      }
-
-      .card__detail-box:last-child {
-        border: none;
-      }
-
-      .card__detail {
-        font-weight: 400;
-        font-size: 1.8rem;
-        transform: skewX(20deg);
-        padding: 1.75rem;
-      }
-
-      .card__detail--organic {
-        font-weight: 900;
-        text-transform: uppercase;
-        font-size: 1.9rem;
-        background-image: linear-gradient(to right, #9be15d, #00e3ae);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-
-      .card__detail--price {
-        font-weight: 900;
-        font-size: 1.9rem;
-      }
-
-      .card__link:link,
-      .card__link:visited {
-        flex: 0 0 auto;
-        background-color: #79e17b;
-        color: white;
-        font-size: 1.6rem;
-        font-weight: 900;
-        text-transform: uppercase;
-        text-decoration: none;
-        padding: 2.5rem;
-        text-align: center;
-        display: flex;
-        align-items: center;
+        font-family: Phantomsans, sans-serif;
+        font-size: 15px;
         justify-content: center;
+        line-height: 1em;
+        max-width: 100%;
+        min-width: 150px;
+        padding: 3px;
+        text-decoration: none;
+        /* user-select: none; */
+        /* -webkit-user-select: none;
+        touch-action: manipulation;
+        white-space: nowrap; */
+        cursor: pointer;
         transition: all 0.3s;
       }
-
-      .card__link:hover,
-      .card__link:active {
-        background-color: #9be15d;
+      
+      button:active,
+      button:hover {
+        outline: 0;
       }
-
-      .card__link span {
-        transform: skewX(20deg);
+      
+      button span {
+        background-color: rgb(5, 6, 45);
+        padding: 12px 18px;
+        border-radius: 6px;
+        width: 100%;
+        height: 100%;
+        transition: 300ms;
       }
-
-      .card:hover {
-        transform: skewX(-20deg) scale(1.08);
-        box-shadow: 0 3rem 8rem 2rem rgba(0, 0, 0, 0.15);
+      
+      button:hover span {
+        background: none;
       }
-
-      .emoji-left {
-        font-size: 2rem;
-        margin-right: 1rem;
+      
+      button:active {
+        transform: scale(0.9);
       }
+                   *,
+              *::before,
+              *::after {
+                  margin: 0;
+                  padding: 0;
+                  box-sizing: inherit;
+              }
+              
+              html {
+                  font-size: 62.5%;
+                  box-sizing: border-box;
+              }
+              
+              body {
+                  /* padding: 5rem; */
+                  line-height: 1.7;
+                  font-family: "Nunito Sans", sans-serif;
+                  min-height: 100vh;
+                  background: linear-gradient(to bottom right, #b3e5fc, #81d4fa, #4fc3f7);
+                  color: #333; /* Changed default text color */
+                  text-align: center; /* Center align text */
+              }
+              
+              .container {
+                  width: 100%;
+                  display: flex;
+                  flex-direction: column !important;
+                  justify-content: center; /* Center the cards horizontally */
+                  align-items: center;
+                  margin-top: 2rem; /* Adjusted margin top */
+              }
+              
+              h1 {
+                  font-size: 6rem; /* Increased font size */
+                  margin-bottom: 3rem;
+                  color: white; /* Changed title color to white for better visibility */
+                  font-family: "Megrim", sans-serif; /* Changed font family */
+                  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow for depth */
+              }
+              
+              .cards-container {
+                  display: flex;
+                  flex-wrap: wrap;
+                  justify-content: space-between; /* Evenly distribute the cards */
+                  max-width: 120rem; /* Set a maximum width for the container */
+              }
+              
+              .card {
+                  background: white;
+                  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+                  margin-bottom: 4rem;
+                  border: 1px solid #ddd;
+                  border-radius: 1rem;
+                  overflow: hidden;
+                  width: calc(33.33% - 2rem); /* Set width for three cards in a row */
+                  margin-right: 2rem;
+                  transition: transform 0.5s ease /* Add margin between cards */
+              }
+              
+              .card:last-child {
+                  margin-right: 0; /* Remove margin from the last card */
+              }
+              
+              .card__title-box {
+                  background: linear-gradient(to bottom, #00c6ff, #0072ff);
+                  padding: 2rem;
+              }
+              
+              .card__title {
+                  font-family: "Megrim", sans-serif;
+                  color: white;
+                  font-size: 2.5rem;
+              }
+              
+              .card__details {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  padding: 2rem;
+                  border-top: 1px solid #ddd;
+              }
+              
+              .card__detail-box {
+                  flex: 1;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  text-align: center;
+                  border-right: 1px solid #ddd;
+              }
+              
+              .card__detail-box:last-child {
+                  border-right: none;
+              }
+              
+              .card__detail {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  font-weight: 400;
+                  font-size: 1.6rem;
+                  padding: 1.5rem 0;
+                  color: #555; /* Changed detail text color */
+              }
+              
+              .card__detail--organic {
+                  font-weight: 900;
+                  text-transform: uppercase;
+                  background-image: linear-gradient(to right, #9be15d, #00e3ae);
+                  -webkit-background-clip: text;
+                  background-clip: text;
+                  color: transparent;
+              }
+              
+              .card__detail--price {
+                  font-weight: 900;
+              }
+              
+              .card__link {
+                  background-color: #4ce3f7;
+                  color: white;
+                  font-size: 1.4rem;
+                  font-weight: 900;
+                  text-transform: uppercase;
+                  text-decoration: none;
+                  padding: 1.5rem;
+                  display: block;
+                  text-align: center;
+                  transition: all 0.3s;
+              }
+              
+              .card__link:hover {
+                  background-color:  #7b79e4;
+              }
+              
+              .card:hover {
+                  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
+                  transform:scale(1.05, 1.05);
 
-      .emoji-right {
-        font-size: 2rem;
-        margin-left: 1rem;
-      }
-
-      .not-organic {
-        display: none;
-      }
-    </style>
+              }
+      
+          </style>
   </head>
 
   <body>
