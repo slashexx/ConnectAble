@@ -15,7 +15,6 @@
 
     <title>CONNECTABLE</title>
 
-  
     <style>
       button {
         align-items: center;
@@ -41,8 +40,8 @@
         text-decoration: none;
         /* user-select: none; */
         /* -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap; */
+      touch-action: manipulation;
+      white-space: nowrap; */
         cursor: pointer;
         transition: all 0.3s;
       }
@@ -84,7 +83,7 @@
       body {
         /* padding: 5rem; */
         line-height: 1.7;
-        font-family: "Nunito Sans", sans-serif;
+        font-family: 'Nunito Sans', sans-serif;
         min-height: 100vh;
         background: linear-gradient(to bottom right, #b3e5fc, #81d4fa, #4fc3f7);
         color: #333; /* Changed default text color */
@@ -94,23 +93,26 @@
       .container {
         width: 100%;
         display: flex;
-        justify-content: center; /* Center the cards horizontally */
-        margin-top: 2rem; /* Adjusted margin top */
+        justify-content: center;
+        margin-top: 2rem;
+        flex-direction: column;
       }
 
       h1 {
         font-size: 6rem; /* Increased font size */
         margin-bottom: 3rem;
         color: white; /* Changed title color to white for better visibility */
-        font-family: "Megrim", sans-serif; /* Changed font family */
+        font-family: 'Megrim', sans-serif; /* Changed font family */
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow for depth */
       }
 
       .cards-container {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between; /* Evenly distribute the cards */
-        max-width: 120rem; /* Set a maximum width for the container */
+        justify-content: space-between;
+        max-width: 120rem;
+        justify-content: center;
+        margin: auto; /* Set a maximum width for the container */
       }
 
       .card {
@@ -135,7 +137,7 @@
       }
 
       .card__title {
-        font-family: "Megrim", sans-serif;
+        font-family: 'Megrim', sans-serif;
         color: white;
         font-size: 2.5rem;
       }
@@ -178,7 +180,7 @@
 
       .card__link {
         width: 100%;
-        position:absolute;
+        position: absolute;
         bottom: 0;
         background-color: #4ce3f7;
         color: white;
@@ -201,7 +203,7 @@
         transform: translateY(-0.5rem);
       }
     </style>
-</head>
+  </head>
 
   <body>
     <div class="container">
