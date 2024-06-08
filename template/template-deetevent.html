@@ -35,13 +35,13 @@
         font-family: 'Nunito Sans', sans-serif;
         color: #555;
         min-height: 100vh;
-        background: linear-gradient(to bottom right, #9be15d, #00e3ae);
+        background: linear-gradient(to bottom right, #b3e5fc, #81d4fa, #4fc3f7);
       }
 
       h1 {
         font-family: 'Megrim', sans-serif;
         font-size: 6rem;
-        color: white;
+        color: #333;
         transform: skewY(-5deg);
         text-align: center;
         position: relative;
@@ -56,30 +56,36 @@
         position: absolute;
         top: 105%;
         left: 50%;
-        background: linear-gradient(to bottom, #9be15d, #00e3ae);
+        background: linear-gradient(to bottom, #00c6ff, #0072ff);
         opacity: 0.8;
         z-index: -1;
         transform: skewY(370deg) translate(-50%, -50%);
       }
 
       .container {
-        width: 95rem;
+        width: 100%;
+        max-width: 100rem;
         margin: 0 auto;
       }
 
       .product {
-        width: 60rem;
+        width: 70rem;
         margin: 0 auto;
         margin-top: 9rem;
-        background: white;
+        background: linear-gradient(to bottom right, #e0f7fa, #b2ebf2);
+        border: 2px solid #00c6ff;
+        border-radius: 20px;
         box-shadow: 0 3rem 6rem 1rem rgba(0, 0, 0, 0.2);
         position: relative;
+        padding: 4rem 2rem; /* Increased padding to increase height */
       }
 
       .product__hero {
         position: relative;
-        height: 22rem;
+        height: 25rem;
         overflow: hidden;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
       }
 
       .product__hero::before {
@@ -90,7 +96,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        background-image: linear-gradient(to left bottom, #9be15d, #00e3ae);
+        background-image: linear-gradient(to left bottom, #00c6ff, #0072ff);
         opacity: 0.5;
         z-index: 100;
       }
@@ -154,7 +160,7 @@
         z-index: 1000;
         height: 11rem;
         width: 11rem;
-        background-image: linear-gradient(to bottom, #9be15d, #00e3ae);
+        background-image: linear-gradient(to bottom, #00c6ff, #0072ff);
         border-radius: 50%;
         transform: rotate(15deg);
         box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.4);
@@ -192,26 +198,29 @@
 
       .product__back:hover,
       .product__back:active {
-        background-color: #79e17b;
+        background-color: #00c6ff;
       }
 
       .product__name {
-        background: linear-gradient(to bottom, #9be15d, #00e3ae);
+        background: linear-gradient(to bottom, #00c6ff, #0072ff);
         padding: 1rem;
         font-family: 'Megrim', sans-serif;
         font-size: 4rem;
         color: white;
         text-align: center;
         word-spacing: 2px;
+        border-bottom: 2px solid #00c6ff;
+        border-radius: 15px;
       }
 
       .product__details {
-        background-color: #eee;
+        background-color: #e0f7fa;
         padding: 4rem 6rem;
         font-size: 1.9rem;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 1.5rem;
+        border-radius: 15px;
       }
 
       .product__description {
@@ -223,7 +232,7 @@
       .product__link:link,
       .product__link:visited {
         display: block;
-        background-color: #79e17b;
+        background-color: #00c6ff;
         color: white;
         font-size: 1.6rem;
         font-weight: 700;
@@ -241,7 +250,7 @@
 
       .product__link:hover,
       .product__link:active {
-        background-color: #9be15d;
+        background-color: #0072ff;
         transform: scale(1.1) skewX(-20deg);
       }
 
@@ -262,37 +271,67 @@
       .not-organic {
         display: none;
       }
+
+      button {
+        border: none;
+        color: #fff;
+        background-image: linear-gradient(30deg, #7b79e4, #4ce3f7);
+        border-radius: 20px;
+        background-size: 100% auto;
+        font-family: inherit;
+        font-size: 17px;
+        padding: 0.6em 1.5em;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-position: right center;
+        background-size: 200% auto;
+        -webkit-animation: pulse 2s infinite;
+        animation: pulse512 1.5s infinite;
+      }
+      .btn-section {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      @keyframes pulse512 {
+        0% {
+          box-shadow: 0 0 0 0 #05bada66;
+        }
+
+        70% {
+          box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+        }
+
+        100% {
+          box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+        }
+      }
     </style>
   </head>
 
   <body>
     <div class="container">
-      <h1>🌽 Node Farm 🥦</h1>
-
       <figure class="product">
-        <div class="product__organic {%NOT_ORGANIC%}"><h5>Organic</h5></div>
         <a href="/overview" class="product__back">
           <span class="emoji-left">👈</span>Back
         </a>
-        
+
         <h2 class="product__name">{%EVENT_NAME%}</h2>
         <div class="product__details">
           <p><span class="emoji-left">🌍</span>At {%LOCATION%}</p>
-          <p><span class="emoji-left">❤️</span>{%NUTRIENTS%}</p>
-          <p><span class="emoji-left">📦</span>{%QUANTITY%}</p>
-          <p><span class="emoji-left">🏷</span>{%PRICE%}€</p>
+          <!-- <p><span class="emoji-left">🥦</span>{%NUTRIENTS%}</p> -->
+          <p><span class="emoji-left">🕑</span>{%TIME%}</p>
+          <!-- <p><span class="emoji-left">🏷</span>{%PRICE%}€</p> -->
         </div>
-  
-        <a href="#" class="product__link">
-          <span class="emoji-left">🛒</span>
-          <span>Add to shopping card ({%PRICE%}€)</span>
-        </a>
-  
-        <p class="product__description">
-          {%DESCRIPTION%}
-        </p>
+
+        <p class="product__description">{%DESCRIPTION%}</p>
+        <div class="btn-section">
+          <button type="button">Volunteers</button>
+          <button type="button">Attendees</button>
+        </div>
       </figure>
-      
     </div>
   </body>
 </html>
