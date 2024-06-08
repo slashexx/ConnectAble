@@ -77,11 +77,13 @@
           <label for="inputEvent" class="form-label">Event Type</label>
           <select id="inputEvent" class="form-select">
             <option>Meetup</option>
-            <option  selected>Political Meetup</option>
+            <option selected>Political Meetup</option>
           </select>
         </div>
         <div class="col-md-12">
-          <label for="eventDescription" class="form-label">Event Description</label>
+          <label for="eventDescription" class="form-label"
+            >Event Description</label
+          >
           <input
             type="text"
             class="form-control"
@@ -99,7 +101,9 @@
           />
         </div>
         <div class="col-md-12">
-          <label for="meeting-time" class="form-label">Select Date and Time</label>
+          <label for="meeting-time" class="form-label"
+            >Select Date and Time</label
+          >
           <input
             type="datetime-local"
             class="form-control"
@@ -116,50 +120,55 @@
     </div>
 
     <script type="module">
-      import { setDoc, addDoc, collection } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-      import { getFirestore } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
+      import {
+        setDoc,
+        addDoc,
+        collection,
+      } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js'
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js'
+      import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js'
 
       const firebaseConfig = {
-        apiKey: "AIzaSyDj9S8bqj8ydqCq8ypaXSWVhZl5bEMnGPs",
-        authDomain: "connect-able.firebaseapp.com",
-        projectId: "connect-able",
-        storageBucket: "connect-able.appspot.com",
-        messagingSenderId: "237284865041",
-        appId: "1:237284865041:web:091f3503e2c2a87fc66db0",
-        measurementId: "G-TNKJ7ZH09C"
-      };
+        apiKey: 'AIzaSyDj9S8bqj8ydqCq8ypaXSWVhZl5bEMnGPs',
+        authDomain: 'connect-able.firebaseapp.com',
+        projectId: 'connect-able',
+        storageBucket: 'connect-able.appspot.com',
+        messagingSenderId: '237284865041',
+        appId: '1:237284865041:web:091f3503e2c2a87fc66db0',
+        measurementId: 'G-TNKJ7ZH09C',
+      }
 
-      const app = initializeApp(firebaseConfig);
-      const db = getFirestore(app);
-      const eventsCollection = collection(db, 'events');
+      const app = initializeApp(firebaseConfig)
+      const db = getFirestore(app)
+      const eventsCollection = collection(db, 'events')
 
-      const hostingForm = document.getElementById('hosting-form');
+      const hostingForm = document.getElementById('hosting-form')
 
       hostingForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
+        event.preventDefault()
 
-        const hostName = document.getElementById('hostName').value;
-        const eventTitle = document.getElementById('eventTitle').value;
-        const eventType = document.getElementById('inputEvent').value;
-        const eventTime = document.getElementById('eventTime').value;
-        const eventLocation = document.getElementById('inputLocation').value;
-        const eventDescription = document.getElementById('eventDescription').value;
+        const hostName = document.getElementById('hostName').value
+        const eventTitle = document.getElementById('eventTitle').value
+        const eventType = document.getElementById('inputEvent').value
+        const eventTime = document.getElementById('eventTime').value
+        const eventLocation = document.getElementById('inputLocation').value
+        const eventDescription =
+          document.getElementById('eventDescription').value
 
         try {
           await addDoc(eventsCollection, {
             'host-name': hostName,
-            'title': eventTitle,
+            title: eventTitle,
             'event-type': eventType,
-            'date': eventTime,
-            'location': eventLocation,
-            'description': eventDescription
-          });
-          alert("Event successfully added!");
+            date: eventTime,
+            location: eventLocation,
+            description: eventDescription,
+          })
+          alert('Event successfully added!')
         } catch (error) {
-          console.error("Error adding document: ", error);
+          console.error('Error adding document: ', error)
         }
-      });
+      })
     </script>
   </body>
 </html>
