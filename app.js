@@ -57,10 +57,16 @@ expressApp.use(express.static(path.join(__dirname, 'public')));
 //     res.status(401).send('Unauthorized');
 //   }
 // });
+
 // Serve the login page
 expressApp.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
+
+// Serve the event-hosting form 
+expressApp.get('/host', (req, res)=> {
+  res.sendFile(path.join(__dirname, 'public', 'hostEvent.html'));
+})
 
 // Send 'index.html' on the root route
 expressApp.get('/', (req, res) => {
