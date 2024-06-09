@@ -202,12 +202,25 @@
         box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
         transform: translateY(-0.5rem);
       }
+
+      .width {
+        width: 15px;
+        padding: 15px;
+        display: flex;
+        position: relative;
+        /* bottom: 0; */
+        left: 85% !important;
+        bottom: 102px;
+      }
     </style>
   </head>
 
   <body>
+    <h1>Ongoing events !</h1>
     <div class="container">
-      <h1>Ongoing events !</h1>
+      <button onclick="window.location.href='/host'" id="host-btn" class="btn btn-primary width" type="submit">
+        Host
+      </button>
 
       <div class="cards-container">{%EVENT_CARDS%}</div>
     </div>
