@@ -50,7 +50,7 @@
       }
     </style>
 
-    <script src="./js/hostEventScript.js" defer></script>
+    <!-- <script src="./js/hostEventScript.js" defer></script> -->
   </head>
   <body class="p-3 m-0 border-0">
     <div class="form-container">
@@ -126,7 +126,7 @@
         collection,
       } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js'
       import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js'
-      import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js'
+      import { getFirestore , Timestamp} from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js'
 
       const firebaseConfig = {
         apiKey: 'AIzaSyDj9S8bqj8ydqCq8ypaXSWVhZl5bEMnGPs',
@@ -155,12 +155,18 @@
         const eventDescription =
           document.getElementById('eventDescription').value
 
+          const eventDate = new Date(eventTime);
+
+  // Convert the Date object to a Firestore Timestamp
+  const eventTimestamp = Timestamp.fromDate(eventDate);
+
+
         try {
           await addDoc(eventsCollection, {
-            'host-name': hostName,
+            hostName: hostName,
             title: eventTitle,
-            'event-type': eventType,
-            date: eventTime,
+            eventType: eventType,
+            date: eventTimestamp,
             location: eventLocation,
             description: eventDescription,
           })

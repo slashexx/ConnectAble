@@ -5,7 +5,7 @@
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
