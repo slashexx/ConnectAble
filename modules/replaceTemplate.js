@@ -2,7 +2,7 @@
 
 function secondsToDateTime(seconds) {
 
-  console.log(seconds);
+  // console.log(seconds);
   // if (!seconds && seconds !== 0) {
   //   return "Invalid Date";
   // }
@@ -25,10 +25,10 @@ function secondsToDateTime(seconds) {
   return `${formattedDate} ${formattedTime}`;
 }
 
-
+ 
 
 const replace = (temp, product) => {
-  console.log(product);
+  // console.log(product);
   let output = temp.replace(/{%EVENT_NAME%}/g, product.title);
   output = output.replace(/{%IMAGE%}/g, product.image);
   output = output.replace(/{%PRICE%}/g, product.price);
@@ -39,9 +39,6 @@ const replace = (temp, product) => {
   output = output.replace(/{%ID%}/g, product.id || 'NO ID');
   output = output.replace(/{%HOST_NAME%}/g, product.hostName);
   
-  if (!product.organic) {
-    output = output.replace(/{%NOT_ORGANIC%}/g, 'not-organic');
-  }
 
   return output;
 }
