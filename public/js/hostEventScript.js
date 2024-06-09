@@ -35,11 +35,15 @@ submitBtn.onclick = async () => {
   const eventLocation = document.getElementById('inputLocation').value;
   const eventDescription = document.getElementById('eventDescription').value;
 
+  const eventDate = new Date(eventTime);
+  const eventTimestamp = Timestamp.fromDate(eventDate)
+
+
   await addDoc(db, 'events'), {
     'host-name' : `${hostName}`,
     'title' : `${eventTitle}`,
     'event-type' : `${eventType}`,
-    'date' : `${eventTime}`,
+    'date' : `${eventTimestamp}`,
     'location' : `${eventLocation}`,
     'description' : `${eventDescription}`
   }
